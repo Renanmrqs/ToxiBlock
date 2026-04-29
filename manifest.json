@@ -1,0 +1,13 @@
+
+{
+    "manifest_version": 3,
+    "name": "ToxiBlock",
+    "version": "1.0",
+    "description": "Filtra comentários negativos usando Machine Learning (SentimentAI).",
+    "content_scripts": [
+        {
+        "matches": ["<all_urls>", "http://localhost/*", "http://127.0.0.1/*"],
+        "js": ["content.js"]
+        }
+    ]
+}
