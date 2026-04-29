@@ -1,0 +1,30 @@
+body {
+display: flex;
+flex-direction: column;
+gap: 5px;
+width: 80px;
+padding: 10px;
+background-color: gray;
+}
+
+#power_on, #power_off{
+    width: 100%;
+    padding: 5px;
+}
+
+#power_on{
+color: rgb(0, 255, 0);
+font-family: Arial, Helvetica, sans-serif;
+background-color: rgb(0, 0, 0);
+font-style: italic;
+font-weight: bold;
+padding: 5px;
+}
+
+#power_off{
+color: rgb(255, 0, 0);
+font-family: Arial, Helvetica, sans-serif;
+background-color: rgb(0, 0, 0);
+font-style: italic;
+font-weight: bolder;
+}

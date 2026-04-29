@@ -1,5 +1,3 @@
-console.log("i'm back bro")
-
 function catching_comments() {
     const texts_users = document.querySelectorAll("section p")
     return texts_users
@@ -13,8 +11,9 @@ function msg_comprimid () {
     
     }
 
+    
 function change_blur(element)  {
-    element.style.filter = "blur(0px)"
+    return element.style.filter = "blur(0px)"
 }
 
 async function fetchData (text)  {
@@ -46,5 +45,17 @@ async function fetchData (text)  {
     
 }
 
-msg_comprimid()
+chrome.runtime.onMessage.addListener(function(data, sender) {
+    if (data.action == "on") {
+        msg_comprimid()
+    } else if (data.action == "off") {
+        console.log("ta off")
+        coments = catching_comments()
+        coments.forEach(function(user_coment){
+            return user_coment.style.filter = "blur(0px)"
+        });
+}   
+})
+
+
 

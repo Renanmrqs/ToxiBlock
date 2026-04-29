@@ -9,5 +9,8 @@
         "matches": ["<all_urls>", "http://localhost/*", "http://127.0.0.1/*"],
         "js": ["content.js"]
         }
-    ]
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    }
 }
