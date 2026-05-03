@@ -17,7 +17,7 @@ function change_blur(element)  {
 }
 
 async function fetchData (text)  {
-    const url = "https://sentimentai-api.onrender.com/predict"
+    const url = "https://sentimentai-api.onrender.com/toxic_predict"
     
 
 
@@ -30,9 +30,9 @@ async function fetchData (text)  {
         })
         const data = await response.json()
         
-        console.log(data)
+        console.log(data, body)
 
-        if (data.sentiment == "negative") {
+        if (data.toxic == "toxic" && data.trust >= 0.65) {
             console.log('negative')
             text.style.filter = "blur(5px)"
             text.addEventListener("click", () => change_blur(text))
