@@ -32,6 +32,6 @@ git clone https://github.com/Renanmrqs/ToxiBlock.git
 
 ## Próximos passos
 
-- [ ] Retreinar o modelo com dataset específico para comentários tóxicos
-- [ ] Suporte para páginas com carregamento dinâmico (YouTube, Twitter)
+- [✅] Retreinar o modelo com dataset específico para comentários tóxicos
+- [✅] Suporte para páginas com carregamento dinâmico (YouTube, Twitter) (Apenas youtube)
 - [ ] Publicar na Chrome Web Store
