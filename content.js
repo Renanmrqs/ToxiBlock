@@ -1,15 +1,43 @@
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1) {
+                const spans = node.querySelectorAll('#content-text span[role="text"]')
+                spans.forEach(function(span) {
+                    fetchData(span)
+                })
+                
+            }
+        })
+    })
+})
+
+
+
 function catching_comments() {
     const texts_users = document.querySelectorAll("section p")
     return texts_users
 }
 
+
+
+
+
 function msg_comprimid () {
-    coments = catching_comments()
-    coments.forEach(function(user_coments){
-        fetchData(user_coments)
-    });
-    
+    const url = window.location.host
+    console.log(window.location.host)
+    if (url == "www.youtube.com") {
+    observer.observe(document.body, {childList: true, subtree: true})
+    } else {
+        Comments = catching_comments()
+        coments.forEach(function(user_comments) {
+            fetchData(user_comments)
+        })
     }
+}
+    
+    
+
 
     
 function change_blur(element)  {
