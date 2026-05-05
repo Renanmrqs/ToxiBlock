@@ -6,7 +6,7 @@
     "description": "Filtra comentários negativos usando Machine Learning (SentimentAI).",
     "content_scripts": [
         {
-        "matches": ["<all_urls>", "http://localhost/*", "http://127.0.0.1/*"],
+        "matches": ["https://www.youtube.com/*", "http://localhost/*", "http://127.0.0.1/*"],
         "js": ["content.js"]
         }
     ],
