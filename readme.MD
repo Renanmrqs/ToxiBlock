@@ -1,21 +1,29 @@
 # 🛡 ToxiBlock
 
-Extensão de navegador que analisa os comentários de qualquer página da web e aplica um blur nos que forem identificados como ofensivos. Se quiser ver o comentário mesmo assim, é só clicar nele para revelar o texto. Tem botões de ligar e desligar o filtro caso necessário.
+Extensão Chrome que detecta e filtra comentários tóxicos em tempo real no YouTube e Twitter/X usando Machine Learning.
+
+Comentários identificados como ofensivos recebem blur automático — clique para revelar se quiser ler mesmo assim.
 
 ## Como funciona
 
-1. A extensão captura todos os comentários da página
-2. Envia cada um para a [SentimentAI API](https://sentimentai-api.onrender.com/docs) analisar
-3. Se o comentário for ofensivo, aplica blur
-4. Clique no comentário embaçado para revelar o texto
-5. Use o popup da extensão para ligar ou desligar o filtro
+1. A extensão captura comentários conforme aparecem na página (scroll infinito incluído)
+2. Cada texto é traduzido automaticamente PT→EN e enviado para a [SentimentAI API](https://sentimentai-api.onrender.com/docs)
+3. O modelo — treinado no dataset Jigsaw Toxic Comments do Kaggle — classifica o comentário
+4. Se a confiança for ≥ 65% e o resultado for tóxico, aplica blur
+5. Clique no comentário embaçado para revelar o texto
+6. Use o popup para ligar ou desligar o filtro a qualquer momento
+
+## Detalhes técnicos
+
+- **MutationObserver** — detecta novos comentários carregados dinamicamente, sem precisar recarregar a página
+- **Threshold de confiança (65%)** — evita falsos positivos, só aplica blur quando o modelo tem certeza suficiente
+- **Tradução automática PT→EN** — o modelo foi treinado em inglês, mas funciona com comentários em português
+- **Modelo próprio** — retreinado com o [Jigsaw Toxic Comment Dataset](https://www.kaggle.com/c/jigsaw-toxic-comment-classification-challenge), integrado via API FastAPI
 
 ## Tecnologias
 
-- JavaScript puro
-- HTML e CSS
-- Chrome Extensions API (Manifest V3)
-- [SentimentAI](https://github.com/Renanmrqs/SentimentAI) — API própria feita com FastAPI e hospedada no Render
+- JavaScript (Chrome Extensions API — Manifest V3)
+- [SentimentAI](https://github.com/Renanmrqs/SentimentAI) — API própria com FastAPI, scikit-learn e hospedada no Render
 
 ## Como instalar localmente
 
@@ -23,15 +31,15 @@ Extensão de navegador que analisa os comentários de qualquer página da web e 
 ```bash
 git clone https://github.com/Renanmrqs/ToxiBlock.git
 ```
-2. Abra o Chrome e acesse `chrome://extensions/`
-3. Ative o **Modo do Desenvolvedor** no canto superior direito
+2. Acesse `chrome://extensions/` no Chrome
+3. Ative o **Modo do Desenvolvedor**
 4. Clique em **Carregar sem compactação** e selecione a pasta do projeto
-5. A extensão vai aparecer na barra do navegador
 
-> A API pode demorar alguns segundos para responder na primeira requisição pois está hospedada no plano gratuito do Render.
+> A API pode demorar alguns segundos na primeira requisição — hospedada no plano gratuito do Render.
 
 ## Próximos passos
 
-- [✅] Retreinar o modelo com dataset específico para comentários tóxicos
-- [✅] Suporte para páginas com carregamento dinâmico (YouTube, Twitter) (Apenas youtube)
+- [✅] Modelo retreinado com dataset específico para toxicidade (Jigsaw/Kaggle)
+- [✅] Suporte a scroll infinito com MutationObserver (YouTube e Twitter/X)
+- [✅] Tradução automática para suporte a português
 - [ ] Publicar na Chrome Web Store

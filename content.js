@@ -1,50 +1,41 @@
+const url = window.location.host
+console.log(window.location.host)
+
 const observer = new MutationObserver(function(mutations) {
     mutations.forEach(function(mutation) {
         mutation.addedNodes.forEach(function(node) {
             if (node.nodeType === 1) {
-                const spans = node.querySelectorAll('#content-text span[role="text"]')
+                let spans = []
+
+                if (url == "www.youtube.com") {
+                    spans = node.querySelectorAll('#content-text span[role="text"]')
+                } else if (url == "x.com" || url == "www.twitter.com") {
+                    spans = node.querySelectorAll('[data-testid="tweetText"] span')
+                }
                 spans.forEach(function(span) {
                     fetchData(span)
                 })
-                
             }
         })
     })
 })
 
 
-
-function catching_comments() {
-    const texts_users = document.querySelectorAll("section p")
-    return texts_users
-}
-
-
-
-
-
 function msg_comprimid () {
-    const url = window.location.host
-    console.log(window.location.host)
-    if (url == "www.youtube.com") {
+    if (url == "www.youtube.com" || url == "www.twitter.com" || url == "x.com") {
     observer.observe(document.body, {childList: true, subtree: true})
-    } else {
-        Comments = catching_comments()
-        coments.forEach(function(user_comments) {
-            fetchData(user_comments)
-        })
-    }
+    } 
 }
     
-    
 
-
-    
 function change_blur(element)  {
     return element.style.filter = "blur(0px)"
 }
 
 async function fetchData (text)  {
+    if (text.dataset.processed) return
+    text.dataset.processed = "true"
+    
     const url = "https://sentimentai-api.onrender.com/toxic_predict"
     
 
@@ -77,9 +68,18 @@ chrome.runtime.onMessage.addListener(function(data, sender) {
     if (data.action == "on") {
         msg_comprimid()
     } else if (data.action == "off") {
+        observer.disconnect()
+        
+        spans = []
+
+        if (url == "www.youtube.com") {
+            spans = document.querySelectorAll('#content-text span[role="text"]')
+        } else if (url == "x.com" || url == "www.twitter.com") {
+            spans = document.querySelectorAll('[data-testid="tweetText"] span')
+        }
+
         console.log("ta off")
-        coments = catching_comments()
-        coments.forEach(function(user_coment){
+        spans.forEach(function(user_coment){
             return user_coment.style.filter = "blur(0px)"
         });
 }   
