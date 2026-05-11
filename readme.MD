@@ -8,6 +8,10 @@ Extensão Chrome que detecta e filtra comentários tóxicos em tempo real no You
 
 Comentários identificados como ofensivos recebem blur automático — clique para revelar se quiser ler mesmo assim.
 
+## Demo
+
+![Demo]()
+
 ## Como funciona
 
 1. A extensão captura comentários conforme aparecem na página (scroll infinito incluído)

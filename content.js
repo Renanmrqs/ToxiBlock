@@ -80,6 +80,7 @@ chrome.runtime.onMessage.addListener(function(data, sender) {
 
         console.log("ta off")
         spans.forEach(function(user_coment){
+            console.log(user_coment, user_coment.style.filter)
             return user_coment.style.filter = "blur(0px)"
         });
 }   
