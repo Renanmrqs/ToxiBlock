@@ -10,7 +10,7 @@ Comentários identificados como ofensivos recebem blur automático — clique pa
 
 ## Demo
 
-![Demo]()
+![Demo](img/tt_img.png)
 
 ## Como funciona
 
