@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- Fundo externo do Escudo -->
+  <path d="M50 5 L10 20 L10 50 C10 75 50 95 50 95 C50 95 90 75 90 50 L90 20 Z" fill="#2D3748" />
+  
+  <!-- Camada interna do Escudo para dar profundidade -->
+  <path d="M50 12 L18 24 L18 50 C18 70 50 86 50 86 C50 86 82 70 82 50 L82 24 Z" fill="#3A4A63" />
+  
+  <!-- Desenho do Olho -->
+  <path d="M28 50 C28 50 38 38 50 38 C62 38 72 50 72 50 C72 50 62 62 50 62 C38 62 28 50 28 50 Z" fill="none" stroke="#90A4AE" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Íris/Pupila do Olho -->
+  <circle cx="50" cy="50" r="6" fill="#90A4AE" />
+  
+  <!-- Linha diagonal cortando (A ideia do 'Block') -->
+  <line x1="25" y1="25" x2="75" y2="75" stroke="#90A4AE" stroke-width="6" stroke-linecap="round"/>
+</svg>
