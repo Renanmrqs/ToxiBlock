@@ -3,7 +3,7 @@
     "manifest_version": 3,
     "name": "ToxiBlock",
     "version": "1.0.0",
-    "description": "FAutomatically filter toxic comments using Machine Learning (SentimentAI).",
+    "description": "Automatically filter toxic comments using Machine Learning (SentimentAI).",
     
     "host_permissions": ["https://sentimentai-api.onrender.com/*"],
 
