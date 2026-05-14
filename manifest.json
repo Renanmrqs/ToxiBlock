@@ -25,7 +25,9 @@
             "resources": ["img/*"],
             "matches": ["<all_urls>"]
         }
-    ]
+    ],
+
+    "keywords": ["toxiblock", "toxic", "comments", "block", "youtube", "twitter", "x", "toxico", "toxidade"],
 
     "action": {
         "default_popup": "popup.html",
