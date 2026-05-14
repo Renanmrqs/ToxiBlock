@@ -2,7 +2,7 @@
 ![Chrome](https://img.shields.io/badge/Google%20Chrome-4285F4?style=for-the-badge&logo=GoogleChrome&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
 
-# 🛡 ToxiBlock
+# [Logo](img/toxiblock_icon_b_refined.svg) ToxiBlock
 
 Extensão Chrome que detecta e filtra comentários tóxicos em tempo real no YouTube e Twitter/X usando Machine Learning.
 
@@ -11,6 +11,8 @@ Comentários identificados como ofensivos recebem blur automático — clique pa
 ## Demo
 
 ![Demo](img/tt_img.png)
+
+![Chrome web store](https://chromewebstore.google.com/detail/gbdijbaipjncfbjecgpfbbadhnibchha?utm_source=item-share-cb)
 
 ## Como funciona
 
@@ -50,4 +52,4 @@ git clone https://github.com/Renanmrqs/ToxiBlock.git
 - [✅] Modelo retreinado com dataset específico para toxicidade (Jigsaw/Kaggle)
 - [✅] Suporte a scroll infinito com MutationObserver (YouTube e Twitter/X)
 - [✅] Tradução automática para suporte a português
-- [ ] Publicar na Chrome Web Store
+- [✅] Publicar na Chrome Web Store
